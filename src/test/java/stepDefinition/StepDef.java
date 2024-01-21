@@ -9,9 +9,11 @@ import java.util.Date;
 
 import org.junit.Assert;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -41,13 +43,16 @@ public class StepDef extends BaseClass{
 	 */
 	@Before
 	public void setUp() {
+	
+		ChromeOptions options=new ChromeOptions();
+		options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 		readconfig=new ReadConfig();
 	String browser=	readconfig.getBrowser();
 	switch (browser.toLowerCase()) {
 
 	case "chrome":
 		WebDriverManager.chromedriver().setup();
-	     driver = new ChromeDriver();
+	     driver = new ChromeDriver(options);
 		
 		
 		break;
