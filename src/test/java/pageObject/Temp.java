@@ -12,7 +12,7 @@ public class Temp {
 	public static void main(String[] args) {
 		
 		
-		WebDriverManager.chromedriver().setup();
+		WebDriverManager.firefoxdriver().setup();
 	    WebDriver driver = new ChromeDriver();
 	driver.get("http://localhost:8888");
 	  
