@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 				features=   {".//Features/CreateAc.feature",".//Features/LoginFeature.feature"}, // Run Specific Features 
 		glue="stepDefinition",
 		dryRun = false,
-		
+		tags="@Sanity",
 		monochrome = true,
 				plugin={"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 				

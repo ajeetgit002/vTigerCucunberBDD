@@ -10,6 +10,7 @@ import java.util.Date;
 import org.junit.Assert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -24,6 +25,7 @@ import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObject.CreateNewAccPage;
 import pageObject.LoginPage;
 import pageObject.SearchAccountByAccountNamePage;
@@ -44,19 +46,19 @@ public class StepDef extends BaseClass{
 	switch (browser.toLowerCase()) {
 
 	case "chrome":
-		System.setProperty("webdriver.chrome.driver", "Drivers\\chromedriver.exe");
-		driver = new ChromeDriver();
+		WebDriverManager.chromedriver().setup();
+	     driver = new ChromeDriver();
 		
 		
 		break;
 	case "firefox":
-		System.setProperty("webdriver.gecko.driver", "Drivers\\geckodriver.exe");
-		driver = new FirefoxDriver();
+		WebDriverManager.firefoxdriver().setup();
+	     driver = new FirefoxDriver();
 		
 		break;
 	case "edge":
-		System.setProperty("webdriver.edge.driver", "Drivers\\msedgedriver.exe");
-		driver = new EdgeDriver();
+		WebDriverManager.edgedriver().setup();
+	     driver = new EdgeDriver();
 		
 		break;
 	default:
