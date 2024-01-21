@@ -25,4 +25,4 @@ Scenario Outline: Successful Login with valid credential
 Examples:
 |userName|password|
 |admin|admin|
-|ajeet|admin|
+|admin|admin|
